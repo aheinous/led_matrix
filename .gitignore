@@ -1,2 +1,8 @@
 *.[aod]
 *~
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.csv
+gerbers
+*.gbr
