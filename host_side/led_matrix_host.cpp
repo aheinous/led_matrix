@@ -19,7 +19,7 @@ static const int8_t col_map[8] = {7,6,5,4,0,1,2,3};
 #define N_ROWS  16
 #define N_COLS 16
 
-//static const int16_t bright_delay_usecs[] = {1,60,250};
+
 
 #define N_BRIGHT_LEVELS (3)
 
@@ -59,6 +59,13 @@ static void pixel_buffer_write_pixel(
 				Pixel_Buffer_t*buffer,
 				int8_t col, int8_t row,
 				int8_t r, int8_t g, int8_t b){
+
+	// hACK TO FIX orientation
+	col = N_COLS - col;
+	int8_t tmp = col;
+	col = row;
+	row = tmp;
+
 	int8_t r_int = row / 8;
 	int8_t r_mod = row % 8;
 	row = row_map[r_mod] + r_int*8;
